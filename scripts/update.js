@@ -16,7 +16,15 @@ $(function () {
   });
   function makeData()
   {
-  	
+  	 var dataString = new Object();
+	   dataString.original_path = imgOrgPath;
+	   if($("#name").is(":checked"))
+	   	dataString.name = "1";
+	   if($("#title").is(":checked"))
+	   	dataString.title = "1";
+	   if($("#picture").is(":checked"))
+	   	dataString.picture = "1";
+	   return dataString;
   }
   $("#name").bootstrapSwitch();
   $("#picture").bootstrapSwitch();
@@ -26,10 +34,7 @@ $(function () {
   	$.ajax({
 			type: 'post',
 			url: 'http://192.168.0.12:3000/upload',
-			data: {
-				'original_path': imgOrgPath,
-				'title': "1"
-			},
+			data: makeData(),
 			success: function(data){
 				$('#uploadImage').attr('src','http://192.168.0.12:3000' + data.path);
 				console.dir(data);
