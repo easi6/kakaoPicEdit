@@ -28,3 +28,27 @@ nav {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* index page */
+
+#wrap {
+  margin-top: 60px;
+  padding-top: 20px;
+
+}
+
+.item {
+  margin-bottom: 20px;
+  /*position: relative;*/
+}
+
+#addInput {
+  font-size: 20px;
+  text-decoration: none;
+  height: 60px;
+  width: 60px;
+  display: block;
+  text-align: center;
+  padding-top: 15px;
+}
+
