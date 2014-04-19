@@ -35,7 +35,23 @@
     </div>
 
     <script>
+      var host = "//127.0.0.1:3000"
       $(function() {
+        var l = document.createElement("a");
+        l.href = document.URL;
+
+        var arr = l.search.substr(1).split("&");
+        for (var i=0; i<arr.length; i++) {
+          s = arr[i].split("=");
+          if (s[0] == "id") {
+            $.get(host + "/show/" + s[1], function(pic) {
+              console.dir(pic);
+              $img = $("<img>");
+              $img.attr("src", host + "/" + pic.image_path);
+              $(".container").append($img);
+            });
+          }
+        }
       });
     </script>
   </body>
