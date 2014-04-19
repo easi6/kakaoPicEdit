@@ -1,4 +1,4 @@
-function getImageList(req_type, path,data, cb)
+function callApi(req_type, path,data, cb)
 {
 	$.ajax({
 	  type: req_type,
