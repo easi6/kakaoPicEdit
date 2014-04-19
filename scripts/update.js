@@ -1,5 +1,6 @@
 $(function () {
 	var imgOrgPath;
+	var currentPath;
   $('#btnConfirm').hide();
   $('#fileupload').fileupload({
       dataType: 'json',
@@ -14,7 +15,7 @@ $(function () {
 	      alert('error');
 	    }
   });
-  function makeData()
+  function makeCheckBoxData()
   {
   	 var dataString = new Object();
 	   dataString.original_path = imgOrgPath;
@@ -26,19 +27,41 @@ $(function () {
 	   	dataString.picture = "1";
 	   return dataString;
   }
-  $("#name").bootstrapSwitch();
-  $("#picture").bootstrapSwitch();
-  $("#title").bootstrapSwitch(); 
-  
-  $("#title").on('switchChange.bootstrapSwitch', function(event, state) {
-  	$.ajax({
-			type: 'post',
-			url: 'http://192.168.0.12:3000/upload',
-			data: makeData(),
-			success: function(data){
-				$('#uploadImage').attr('src','http://192.168.0.12:3000' + data.path);
-				console.dir(data);
-			}
+  $("#name").bootstrapSwitch('state', false, false);
+  $("#picture").bootstrapSwitch('state', false, false);
+  $("#title").bootstrapSwitch('state', false, false);
+
+  $("#name").on('switchChange.bootstrapSwitch', function(event, state) {
+  	callApi('post','upload',makeCheckBoxData(),function(data){
+			$('#uploadImage').attr('src','http://192.168.0.12:3000' + data.path);
+			currentPath = data.path;
+			console.dir(data);
 		});
 	});
+	$("#picture").on('switchChange.bootstrapSwitch', function(event, state) {
+  	callApi('post','upload',makeCheckBoxData(),function(data){
+			$('#uploadImage').attr('src','http://192.168.0.12:3000' + data.path);
+			currentPath = data.path;
+			console.dir(data);
+		});
+	});
+  $("#title").on('switchChange.bootstrapSwitch', function(event, state) {
+  	callApi('post','upload',makeCheckBoxData(),function(data){
+			$('#uploadImage').attr('src','http://192.168.0.12:3000' + data.path);
+			currentPath = data.path;
+			console.dir(data);
+		});
+	});
+	$('#btnConfirm').on('click', function(event) {
+		var parameter = new Object();
+		parameter.path = currentPath;
+  	callApi('post','confirm',parameter,function(data){
+			$('#uploadImage').attr('src','http://192.168.0.12:3000' + data.path);
+			console.dir(data);
+			$('#successModalDialog').modal('show');
+		});
+  });
+  $('#successModalDialog').on('hidden.bs.modal', function (e) {
+  	parent.history.back();
+	})
 });

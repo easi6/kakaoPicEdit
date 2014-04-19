@@ -14,7 +14,7 @@
 		<script src="bower_components/jquery-file-upload/js/jquery.iframe-transport.js"></script>
 		<script src="bower_components/jquery-file-upload/js/jquery.fileupload.js"></script>
 		<script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
-		<script src="scripts/commin.js"></script>
+		<script src="scripts/common.js"></script>
     <script src="scripts/update.js"></script>
 	</head>
 	<body>
@@ -44,9 +44,16 @@
 					<span> select file </span>
 						<input id="fileupload" type="file" name="capture_image" data-url="http://192.168.0.12:3000/upload" accept="image/png, image/gif, image/jpeg">
 				</button>
-				<button id = 'btnConfirm' class="btn btn-block btn-primary btn-lg ">
+				<button id = 'btnConfirm' class="btn btn-block btn-primary btn-lg" >
 					Confirm
 				</button>
+				<div id="successModalDialog" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+				  <div class="modal-dialog modal-sm">
+				    <div class="modal-content">
+				      업로드에 성공하였습니다.
+				    </div>
+				  </div>
+				</div>
 			</div>
 		</div>
 	</body>
