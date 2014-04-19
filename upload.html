@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset='utf-8'>
+		<title>
+			Kakao Talk picture...
+		</title>
+		<link rel="stylesheet" href='bower_components/bootstrap/dist/css/bootstrap.css' type='text/css'/>
+		<link rel="stylesheet" href='bower_components/jquery-file-upload/css/jquery.fileupload.css' type='text/css'/>
+		<link href="bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet">
+		<link rel='stylesheet' href='style/style.css' type='text/css' />
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="bower_components/jquery.ui/ui/jquery.ui.widget.js"></script>
+		<script src="bower_components/jquery-file-upload/js/jquery.iframe-transport.js"></script>
+		<script src="bower_components/jquery-file-upload/js/jquery.fileupload.js"></script>
+		<script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+    <script src="scripts/update.js"></script>
+	</head>
+	<body>
+			<div class="row img_field">
+				<div class="col-md-10 col-sm-10 col-xs-8">
+					<img class = 'col_img' id='uploadImage' src="image/noimage.jpg">
+				</div>
+				<!-- 이미지 속성을 제어하는 체크박스-->
+				<form action="http://192.168.0.12:3000/" method="post">
+					<div id = 'pnlChkBox' class="col-md-2 col-sm-2 col-xs-4 com_chkbox" style="display: none">
+						<fieldset>
+							<legend>수정</legend>
+								<label>이름수정</label><br/>
+								<input type="checkbox" id="name" checked><br/>
+								<label>프로필사진수정</label><br/>
+								<input type="checkbox" id="picture" checked><br/>
+								<label>방제목수정</label><br/>
+								<input type="checkbox" id="title" checked><br/>
+						</fieldset>
+					</div>
+				</form>
+			</div>
+		<div class='row'>
+			<div class="col-md-10 col-sm-10 col-xs-10 col-center-block">
+				<button id = 'btnFileSelect' class="btn btn-block btn-primary btn-lg fileinput-button">
+					<span id='addInput' class="glyphicon glyphicon-plus"></span>
+					<span> select file </span>
+						<input id="fileupload" type="file" name="capture_image" data-url="http://192.168.0.12:3000/upload" accept="image/png, image/gif, image/jpeg">
+				</button>
+				<button id = 'btnConfirm' class="btn btn-block btn-primary btn-lg ">
+					Confirm
+				</button>
+			</div>
+		</div>
+	</body>
+</html>
