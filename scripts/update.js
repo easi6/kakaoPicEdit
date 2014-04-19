@@ -64,4 +64,7 @@ $(function () {
   $('#successModalDialog').on('hidden.bs.modal', function (e) {
   	parent.history.back();
 	})
+	$('#btnBack').on('click', function(event) {
+    back();
+  })
 });

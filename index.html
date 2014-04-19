@@ -35,7 +35,7 @@
     </div>
 
     <script>
-      var host = "//127.0.0.1:3000"
+      var host = "http://192.168.0.12:3000"
       $(function() {
         $.get(host + "/", function(pics) {
           console.log("pics.length = " + pics.length);
@@ -48,7 +48,7 @@
               console.log("i = " + i);
               var pic = pics[i];
               console.dir(pic);
-              $row.append("<div class=\"item col-md-3 col-sm-4 col-xs-6 clearfix\"><a href=\"/show.html?id="+pic["_id"]+"\"><img class=\"img-responsive\" src=\"" + host + "/" + pic.image_path + "\"/></a></div>");
+              $row.append("<div class=\"item col-md-3 col-sm-4 col-xs-6 clearfix\"><a href=\"show.html?id="+pic["_id"]+"\"><img class=\"img-responsive\" src=\"" + host + "/" + pic.image_path + "\"/></a></div>");
             }
             $("#imageList").append($row);
           }
@@ -58,7 +58,7 @@
             var $row = $("<div class=\"row\">");
             for (var i=rows*4; i<pics.length; i++) {
               var pic = pics[i];
-              $row.append("<div class=\"item col-md-3 col-sm-4 col-xs-6 clearfix\"><a href=\"/show.html?id="+pic["_id"]+"\"><img class=\"img-responsive\" src=\"" + host + "/" + pic.image_path + "\"/></a></div>");
+              $row.append("<div class=\"item col-md-3 col-sm-4 col-xs-6 clearfix\"><a href=\"show.html?id="+pic["_id"]+"\"><img class=\"img-responsive\" src=\"" + host + "/" + pic.image_path + "\"/></a></div>");
             }
             $("#imageList").append($row);
           }

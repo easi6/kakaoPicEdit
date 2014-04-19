@@ -8,3 +8,7 @@ function callApi(req_type, path,data, cb)
 	  success: cb
 	});
 }
+function back()
+{
+	parent.history.back();
+}

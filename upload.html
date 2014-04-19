@@ -18,25 +18,45 @@
     <script src="scripts/update.js"></script>
 	</head>
 	<body>
-			<div class="row img_field">
-				<div class="col-md-10 col-sm-10 col-xs-8">
-					<img class = 'col_img' id='uploadImage' src="image/noimage.jpg">
-				</div>
-				<!-- 이미지 속성을 제어하는 체크박스-->
-				<form action="http://192.168.0.12:3000/" method="post">
-					<div id = 'pnlChkBox' class="col-md-2 col-sm-2 col-xs-4 com_chkbox" style="display: none">
-						<fieldset>
-							<legend>수정</legend>
-								<label>이름수정</label><br/>
-								<input type="checkbox" id="name" checked><br/>
-								<label>프로필사진수정</label><br/>
-								<input type="checkbox" id="picture" checked><br/>
-								<label>방제목수정</label><br/>
-								<input type="checkbox" id="title" checked><br/>
-						</fieldset>
-					</div>
-				</form>
+		<div id="wrap">
+			<div class="navbar-fixed-top">
+	      <nav>
+          <div class="row clearfix">
+          	<div class="col-md-1 col-sm-1 col-xs-1">
+                <h3 class="text-center text-info">
+                  <button id="btnBack" type="button" class="btn btn-default btn-lg">
+                    back
+                  </button>
+                </h3>
+              </div>
+            <div class="col-md-11 col-sm-11 col-xs-11">
+              <h3 class="text-center text-info">
+                Kakao talk funny pic share
+              </h3>
+            </div>
+          </div>
+	      </nav>
+	    </div>
+  	</div>
+		<div class="row img_field">
+			<div class="col-md-10 col-sm-10 col-xs-8">
+				<img class = 'col_img' id='uploadImage' src="image/noimage.jpg">
 			</div>
+			<!-- 이미지 속성을 제어하는 체크박스-->
+			<form action="http://192.168.0.12:3000/" method="post">
+				<div id = 'pnlChkBox' class="col-md-2 col-sm-2 col-xs-4 com_chkbox" style="display: none">
+					<fieldset>
+						<legend>수정</legend>
+							<label>이름수정</label><br/>
+							<input type="checkbox" id="name" checked><br/>
+							<label>프로필사진수정</label><br/>
+							<input type="checkbox" id="picture" checked><br/>
+							<label>방제목수정</label><br/>
+							<input type="checkbox" id="title" checked><br/>
+					</fieldset>
+				</div>
+			</form>
+		</div>
 		<div class='row'>
 			<div class="col-md-10 col-sm-10 col-xs-10 col-center-block">
 				<button id = 'btnFileSelect' class="btn btn-block btn-primary btn-lg fileinput-button">
