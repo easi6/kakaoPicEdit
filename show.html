@@ -62,28 +62,27 @@
           }
         }
       });
-      $('#btnShareFacebook').on('click', function(event) {
+      function ShowSocialDialog(url)
+      {
         var width = 626;
         var height = 436;
         var yourPageToShare = location.href;
-        var sharerUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(yourPageToShare);
         var l = window.screenX + (window.outerWidth - width) / 2;
         var t = window.screenY + (window.outerHeight - height) / 2;
         var winProps = ['width='+width,'height='+height,'left='+l,'top='+t,'status=no','resizable=yes','toolbar=no','menubar=no','scrollbars=yes'].join(',');
-        var win = window.open(sharerUrl, 'fbShareWin', winProps);
+        var win = window.open(url, 'fbShareWin', winProps);
+      }
+      $('#btnShareFacebook').on('click', function(event) {
+        var sharerUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(yourPageToShare);
+        ShowSocialDialog(sharerUrl);
+        
       });
       $('#btnShareTwitter').on('click', function(event) {
-        var width = 626;
-        var height = 436;
-        var l = window.screenX + (window.outerWidth - width) / 2;
-        var t = window.screenY + (window.outerHeight - height) / 2;
-        
         var Tweet = encodeURIComponent('[카카오똥!!]');
         var yourPageToShare = location.href;
         var Turl = encodeURIComponent(yourPageToShare);
         var sharerUrl = 'https://twitter.com/intent/tweet?text=' + Tweet + '&url=' + Turl + '&original_referer=' + Turl + '&hashtags=' + encodeURIComponent('#kakaoddong') + '&related=code1616';
-        var winProps = ['width='+width,'height='+height,'left='+l,'top='+t,'status=no','resizable=yes','toolbar=no','menubar=no','scrollbars=yes'].join(',');
-        var win = window.open(sharerUrl, 'fbShareWin', winProps);
+        ShowSocialDialog(sharerUrl);
       })
       $('#btnBack').on('click', function(event) {
         back();
